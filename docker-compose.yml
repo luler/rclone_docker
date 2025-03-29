@@ -2,7 +2,7 @@ version: '3'
 
 services:
   rclone:
-    image: ghcr.io/luler/rclone:latest
+    image: ghcr.io/luler/rclone_docker:latest
     restart: always
     volumes:
       - ./rclone.conf:/config/rclone/rclone.conf # rclone配置文件

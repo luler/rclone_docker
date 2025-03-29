@@ -10,5 +10,5 @@ RUN wget -O /usr/local/bin/supercronic "$SUPERCRONIC_URL" \
 ENV TZ=Asia/Shanghai
 
 # 直接运行 supercronic
-ENTRYPOINT ["/usr/local/bin/supercronic"]
-CMD ["/etc/crontab"]
+ENTRYPOINT []
+CMD ["/usr/local/bin/supercronic","/etc/crontab"]

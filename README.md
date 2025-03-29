@@ -28,7 +28,17 @@ url = https://alist.xxx.top/dav/ # webdav地址
 vendor = other # 一般默认这个即可
 user = admin  # webdav用户名
 pass = xxxxxxx  # webdav密码，注意：这里需要使用rclone的混淆密码，如：rclone obscure "你的明文密码"
-```
 
 #no_check_certificate=true  # 如果需要跳过SSL验证
+```
+4. 修改config/crontab，配置定时任务，如下示例：
+```
+# 每分钟执行备份，flock防止重复执行
+* * * * * flock -n /tmp/rclone.lock rclone sync mywebdav:nas/我的文件/ /data --log-file=/var/log/rclone-sync.log --log-level=INFO --stats=10m
+```
+
+5. 启动容器
+
+```bash
+docker-compose up -d
 ```

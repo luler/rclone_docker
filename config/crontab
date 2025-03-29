@@ -1,2 +1,2 @@
 # 每分钟执行备份，flock防止重复执行
-* * * * * flock -n /tmp/rclone.lock rclone sync mywebdav:nas/我的文件/ /data --log-file=/var/log/rclone-sync.log --log-level=INFO --stats=10m
+* * * * * flock -n /tmp/rclone.lock rclone sync mywebdav:我的阿里云盘目录/共享文件/ /data --log-file=/var/log/rclone-sync.log --log-level=INFO --stats=10m --multi-thread-cutoff=50M --multi-thread-streams=8

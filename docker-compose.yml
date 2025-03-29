@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  rclone:
+    image: ghcr.io/luler/rclone:latest
+    restart: always
+    volumes:
+      - ./rclone.conf:/config/rclone/rclone.conf # rclone配置文件
+      - ./crontab:/etc/crontab # 定时任务配置文件
+      - ./data:/data  # 数据目录
+      - ./logs:/var/log # 日志目录
